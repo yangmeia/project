@@ -45,6 +45,8 @@ int main(int argc, char const *argv[])
     // 2.释放动态内存(使用 delete 和 delete[] 关键字释放动态分配的内存)
     delete pInt;
     delete[] pArray;
+    pInt = nullptr;
+    pArray = nullptr;
 
     //3.空指针常量（nullptr 是NULL的char* 版本）
     int* p = new int(10);
