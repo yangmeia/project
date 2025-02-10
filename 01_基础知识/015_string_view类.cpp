@@ -47,8 +47,9 @@ int main(int argc, char const *argv[])
       (3)字符串处理：在需要频繁处理字符串片段的场景中，std::string_view 提供了高效的子串提取和操作能力。*/
 
     // 从 std::string 构造 std::string_view
+    /*创建一个 std::string_view，指向 str 的内容,如果 std::string_view 所引用的字符串数据被释放或失效，std::string_view 将变得无效，使用它可能会导致未定义行为*/
     std::string str = "Hello, World!";
-    std::string_view sv1(str);
+    std::string_view sv1(str);		
     print_string_view(sv1);
 
     // 从 C风格字符串构造 std::string_view
@@ -62,7 +63,7 @@ int main(int argc, char const *argv[])
 
     //查找子串
     size_t pos = sv1.find("World");
-    if(pos != std::string_view::npos) {
+    if(pos != std::string_view::npos) {   //std::string_view::npos 是一个常量，表示一个无效的位置
         std::cout << "Found 'World' at position " << pos << std::endl;
     }
 

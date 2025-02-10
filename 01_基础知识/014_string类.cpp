@@ -7,9 +7,9 @@
 
 int main(int argc, char const *argv[])
 {
-    std::string str1("Hello");  // 使用字符串字面量初始化
+    std::string str1("Hello");  // 使用字符串字面量初始化（构造函数）
 
-    std::string str2 = str1; // 复制 str1 到 str2
+    std::string str2 = str1; // 复制 str1 到 str2（等价于str2.operator=(str1);)
     // std::string str2(str1); // 使用拷贝构造函数初始化 str2
 
     //获取长度(length与size)
@@ -27,7 +27,10 @@ int main(int argc, char const *argv[])
 
     // 插入字符(insert)
     str1.insert(6, "my "); // 在位置 6 插入 "my "
+    // std::cout << "Before Inserted str2: " << str2 << std::endl;
+    str2.insert(str2.begin() + 5, str1.begin() + 0, str1.end() - 1); //用迭代器范围插入（注：last：指向要复制的最后一个字符之后的迭代器，所以-2是-1）
     std::cout << "After Inserted str1: " << str1 << std::endl;
+    std::cout << "After Inserted str2: " << str2 << std::endl;
 
     //查找字符(find, rfind, find_first_of, find_last_of)
     size_t found = str1.find("C++");    // find 方法查找子字符串在字符串中的第一次出现位置。(found = 6)

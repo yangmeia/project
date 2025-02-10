@@ -138,5 +138,7 @@ int main(int argc, char const *argv[])
         std::cout << "weakPtr 锁定失败" << std::endl;
     }
 
+    // 注：锁定：使用 lock() 方法可以将 std::weak_ptr 转换为 std::shared_ptr，如果对象已经被销毁，lock() 将返回一个空的 std::shared_ptr。
+
     return 0;
 }
